@@ -1,14 +1,23 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import {
+  Routes, Route, Navigate, Outlet,
+} from 'react-router-dom';
 import routes from './config/routes';
 import './App.css';
-import ProductsListPage from './pages/ProductsListPage';
-import ProductDetailPage from './pages/ProductDetailPage';
+import Header from './components/Header/Header';
+import ProductsListPage from './pages/ProductsListPage/ProductsListPage';
+import ProductDetailPage from './pages/ProductDetailPage/ProductDetailPage';
 
 function App() {
   return (
     <Routes>
       <Route
         path={routes.PRODUCT}
+        element={(
+          <>
+            <Header title="AppTitle" />
+            <Outlet />
+          </>
+)}
       >
         <Route index element={<ProductsListPage />} />
         <Route path=":productId" element={<ProductDetailPage />} />
