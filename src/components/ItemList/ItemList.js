@@ -12,7 +12,7 @@ function ItemList({ data, onItemClick }) {
               <Item
                 key={item.id}
                 id={item.id}
-                name={item.name}
+                name={item.model}
                 onItemClick={(itemId) => onItemClick(itemId)}
               />
             ),
@@ -26,7 +26,10 @@ ItemList.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape(
     {
       id: PropTypes.string,
-      name: PropTypes.string,
+      brand: PropTypes.string,
+      model: PropTypes.string,
+      price: PropTypes.string,
+      imgUrl: PropTypes.string,
     },
   )).isRequired,
   onItemClick: PropTypes.func,

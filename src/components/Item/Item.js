@@ -6,7 +6,7 @@ function Item({ id, name, onItemClick }) {
   );
 }
 Item.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onItemClick: PropTypes.func,
 };

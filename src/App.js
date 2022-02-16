@@ -14,7 +14,7 @@ function App() {
         path={routes.PRODUCT}
         element={(
           <>
-            <Header title="AppTitle" />
+            <Header title={process.env.REACT_APP_TITLE} />
             <Outlet />
           </>
 )}
