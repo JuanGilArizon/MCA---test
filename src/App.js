@@ -2,7 +2,6 @@ import {
   Routes, Route, Navigate, Outlet,
 } from 'react-router-dom';
 import routes from './config/routes';
-import './App.css';
 import Header from './components/Header/Header';
 import ProductsListPage from './pages/ProductsListPage/ProductsListPage';
 import ProductDetailPage from './pages/ProductDetailPage/ProductDetailPage';

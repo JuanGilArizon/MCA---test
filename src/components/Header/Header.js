@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import routes from '../../config/routes';
+import './header.scss';
 
 function Header({ title }) {
   return (
-    <h1><Link to={routes.ROOT}>{title}</Link></h1>
+    <h1 className="header"><Link to={routes.ROOT}>{title}</Link></h1>
   );
 }
 

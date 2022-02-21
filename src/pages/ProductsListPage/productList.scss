@@ -1,0 +1,13 @@
+.product-list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .search-input {
+        justify-content: flex-end;
+        display: flex;
+        width: 100%;
+    }
+    .item-list {
+        width: 100%;
+    }
+}

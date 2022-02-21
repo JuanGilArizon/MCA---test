@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 import Item from '../Item/Item';
+import './itemList.scss';
 
-function ItemList({ data, onItemClick }) {
+function ItemList({ className, data, onItemClick }) {
   return (
-    <div>
+    <div className={`item-list-container ${className}`}>
       {
       data.length !== 0
         ? data
           .map(
             (item) => (
               <Item
+                className="item"
                 key={item.id}
                 id={item.id}
                 name={item.model}
@@ -23,6 +25,7 @@ function ItemList({ data, onItemClick }) {
   );
 }
 ItemList.propTypes = {
+  className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.shape(
     {
       id: PropTypes.string,
@@ -36,6 +39,7 @@ ItemList.propTypes = {
 };
 ItemList.defaultProps = {
   onItemClick: () => null,
+  className: '',
 };
 
 export default ItemList;

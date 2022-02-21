@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getProducts } from '../../services/product-api';
 import ItemList from '../../components/ItemList/ItemList';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import './productList.scss';
 
 function ProductsListPage() {
   const navigate = useNavigate();
@@ -29,10 +30,10 @@ function ProductsListPage() {
     setFilteredProducts(filtered);
   };
   return (
-    <>
-      <SearchBar onTextChange={filterData} />
-      <ItemList data={filteredProducts} onItemClick={handleItemClick} />
-    </>
+    <div className="product-list-container p-2">
+      <SearchBar className="search-input mb-3" onTextChange={filterData} />
+      <ItemList className="item-list" data={filteredProducts} onItemClick={handleItemClick} />
+    </div>
   );
 }
 export default ProductsListPage;
