@@ -1,0 +1,22 @@
+
+
+.product-detail-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5rem;
+    img {
+        object-fit: contain;
+    }
+    .actions{
+        display: flex;
+        flex-direction: column;
+        > * {
+            margin: 0.5rem;
+        }
+        select {
+            margin-left: 0.5rem;
+        }
+    }
+
+}

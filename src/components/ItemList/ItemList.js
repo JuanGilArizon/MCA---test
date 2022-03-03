@@ -14,7 +14,10 @@ function ItemList({ className, data, onItemClick }) {
                 className="item"
                 key={item.id}
                 id={item.id}
-                name={item.model}
+                imgUrl={item.imgUrl}
+                brand={item.brand}
+                model={item.model}
+                price={item.price}
                 onItemClick={(itemId) => onItemClick(itemId)}
               />
             ),
