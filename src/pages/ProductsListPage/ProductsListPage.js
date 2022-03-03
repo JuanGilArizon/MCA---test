@@ -26,7 +26,7 @@ function ProductsListPage() {
     // TODO: comparar con marca y modelo
     const filtered = products.filter((product) => product.model.toUpperCase()
       .includes(textCriteria.toUpperCase())
-    || product.brand.includes(textCriteria));
+    || product.brand.toUpperCase().includes(textCriteria.toUpperCase()));
     setFilteredProducts(filtered);
   };
   return (
