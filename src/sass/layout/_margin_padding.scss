@@ -1,0 +1,18 @@
+$sides: (
+  "": "",
+  "t": "-top",
+  "b": "-bottom",
+  "r": "-right",
+  "l": "-left",
+);
+// global padding  0.5rem to 5rem
+@each $name, $value in $sides {
+  @for $i from 0 through 20 {
+    .p#{$name}-#{$i} {
+      padding#{$value}: 0.5rem * $i;
+    }
+    .m#{$name}-#{$i} {
+      margin#{$value}: 0.5rem * $i;
+    }
+  }
+}
