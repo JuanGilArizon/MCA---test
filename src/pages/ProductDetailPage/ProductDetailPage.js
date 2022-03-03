@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { actions as cartActions } from '../../redux/actions/cart-actions';
 import { getProduct } from '../../services/product-api';
 import addToCart from '../../services/cart-api';
 import ProductDescription from '../../components/ProductDescription/ProductDescription';
@@ -8,6 +10,7 @@ import './productsDetailsPage.scss';
 
 function ProductDetailPage() {
   const params = useParams();
+  const dispatch = useDispatch();
   const [itemDetails, setItemDetails] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -26,7 +29,7 @@ function ProductDetailPage() {
     addToCart(itemDetails.id, options).then((response) => {
       // redux
       // dispatch(cartActions.setNumberOfItems(response.data))
-      console.log({ addToCart: response.data });
+      dispatch(cartActions.setCartNumberOfItems(response.data.count));
     });
   };
 

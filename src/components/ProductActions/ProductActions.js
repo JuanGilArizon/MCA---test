@@ -14,14 +14,18 @@ function ProductActions({
     <div className={className}>
       <label htmlFor="color">
         Select color:
-        <select id="color" onChange={setColorCode} value={colorCode}>
-          {colors.map((color) => <option value={color.code}>{color.name}</option>)}
+        <select id="color" onChange={(e) => setColorCode(Number(e.target.value))} value={colorCode}>
+          {colors.map((color) => (
+            <option key={color.code} value={color.code}>{color.name}</option>
+          ))}
         </select>
       </label>
       <label htmlFor="storage">
         Select the storage:
-        <select id="storage" onChange={setStorageCode} value={storageCode}>
-          {storages.map((storage) => <option value={storage.code}>{storage.name}</option>)}
+        <select id="storage" onChange={(e) => setStorageCode(Number(e.target.value))} value={storageCode}>
+          {storages.map((storage) => (
+            <option key={storage.code} value={storage.code}>{storage.name}</option>
+          ))}
         </select>
       </label>
       <button type="button" onClick={() => onAddToCart({ colorCode, storageCode })}>
@@ -33,14 +37,14 @@ function ProductActions({
 ProductActions.propTypes = {
   className: PropTypes.string,
   availableOptions: PropTypes.shape({
-    colors: PropTypes.arrayOf({
+    colors: PropTypes.arrayOf(PropTypes.shape({
+      code: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    })),
+    storages: PropTypes.arrayOf(PropTypes.shape({
       code: PropTypes.number,
       name: PropTypes.string,
-    }),
-    storages: PropTypes.arrayOf({
-      code: PropTypes.number,
-      name: PropTypes.string,
-    }),
+    })),
   }).isRequired,
   onAddToCart: PropTypes.func.isRequired,
 };

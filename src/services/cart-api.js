@@ -4,7 +4,7 @@ const cartApi = `${process.env.REACT_APP_HEROAPP_API_HOST}/api/cart`;
 
 const addToCart = (productId, options) => {
   const { colorCode, storageCode } = options;
-  axios.post(
+  return axios.post(
     cartApi,
     {
       id: productId,

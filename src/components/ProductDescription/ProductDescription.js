@@ -29,8 +29,8 @@ function ProductDescription({
         <li>{`os : ${os}`}</li>
         <li>{`displaySize : ${displaySize}`}</li>
         <li>{`battery : ${battery}`}</li>
-        <li>{`primaryCamera : ${primaryCamera}`}</li>
-        <li>{`secondaryCmera : ${secondaryCmera}`}</li>
+        <li>{`primaryCamera : ${Array.isArray(primaryCamera) ? primaryCamera.join(', ') : primaryCamera}`}</li>
+        <li>{`secondaryCmera : ${Array.isArray(secondaryCmera) ? secondaryCmera.join(', ') : secondaryCmera}`}</li>
         <li>{`dimentions : ${dimentions}`}</li>
         <li>{`weight : ${weight}`}</li>
       </ul>
@@ -48,8 +48,8 @@ ProductDescription.propTypes = {
     os: PropTypes.string,
     displaySize: PropTypes.string,
     battery: PropTypes.string,
-    primaryCamera: PropTypes.string,
-    secondaryCmera: PropTypes.string,
+    primaryCamera: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
+    secondaryCmera: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
     dimentions: PropTypes.string,
     weight: PropTypes.string,
   }).isRequired,

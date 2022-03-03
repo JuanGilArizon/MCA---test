@@ -3,13 +3,17 @@ import { Link } from 'react-router-dom';
 import routes from '../../config/routes';
 import './header.scss';
 
-function Header({ title }) {
+function Header({ title, numberOfItems }) {
   return (
-    <h2 className="header"><Link to={routes.ROOT}>{title}</Link></h2>
+    <h2 className="header">
+      <Link to={routes.ROOT}>{title}</Link>
+      <span>{numberOfItems}</span>
+    </h2>
   );
 }
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
+  numberOfItems: PropTypes.number.isRequired,
 };
 export default Header;
